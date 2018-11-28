@@ -14,14 +14,19 @@ buildscript {
 version "0.1"
 group "examples"
 
+apply plugin:"application"
+
+mainClassName = "example.micronaut.Application"
+
 apply plugin:"io.spring.dependency-management"
 apply plugin:"com.github.johnrengelman.shadow"
-apply plugin:"application"
 apply plugin:"java"
 apply plugin:"net.ltgt.apt-eclipse"
 apply plugin:"net.ltgt.apt-idea"
 apply plugin:"kotlin"
 apply plugin:"kotlin-kapt"
+
+
 
 repositories {
     mavenLocal()
@@ -59,8 +64,6 @@ dependencies {
 shadowJar {
     mergeServiceFiles()
 }
-
-mainClassName = "example.micronaut.Application"
 
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
 
